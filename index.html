@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Portfolio</h1>
+        <img id="profile-picture" src="https://via.placeholder.com/120" alt="Profile Picture">
+        <div class="bio-info">
+            <h2 id="userName">Name: </h2>
+            <h2 id="userEdu">Education: </h2>
+            <h2 id="userBio">About Me: </h2>
+            <h2 id="userSkills">Skills: </h2>
+        </div>
+        <button onclick="getUserPortfolioInfo()">Create Your Portfolio</button>
+    </div>
+
+    <script>
+        function getUserPortfolioInfo() {
+            let name = prompt("Enter your name.").trim();
+            let edu = prompt("Enter your education").trim();
+            let bio = prompt("Tell us about yourself").trim();
+            let skills = prompt("Enter your skills").trim();
+            let profilePicture = prompt("Please provide the URL of your profile picture:").trim();
+
+            if (!name || !edu || !bio || !skills || !profilePicture) {
+                alert("All fields are required! Please provide all the information, including the profile picture URL.");
+                return;
+            }
+
+            alert(`Portfolio Created!\nName: ${name}\nEducation: ${edu}\nBio: ${bio}\nSkills: ${skills}`);
+            console.log(`User Portfolio:\nName: ${name}\nEducation: ${edu}\nBio: ${bio}\nSkills: ${skills}`);
+
+            document.getElementById("userName").innerText = `Name: ${name}`;
+            document.getElementById("userEdu").innerText = `Education: ${edu}`;
+            document.getElementById("userBio").innerText = `About Me: ${bio}`;
+            document.getElementById("userSkills").innerText = `Skills: ${skills}`;
+            document.getElementById("profile-picture").src = profilePicture;
+        }
+    </script>
+</body>
+</html>
